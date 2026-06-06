@@ -12,4 +12,6 @@ add_executable(DSA src/Patterns/Patterns.cpp
         src/RecursionBasics/RecursionBasics.h
         src/HashingBasics/HashingBasics.cpp
         src/HashingBasics/HashingBasics.h
+        src/Sorting/SortingAlgo.cpp
+        src/Sorting/SortingAlgo.h
 )
