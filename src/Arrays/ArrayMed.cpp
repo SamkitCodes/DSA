@@ -1,6 +1,7 @@
 #include <vector>
 #include <unordered_map>
 #include "ArrayMed.h"
+#include <unordered_set>
 
 using namespace std;
 
@@ -90,4 +91,66 @@ int ArrayMed::maxSubArray(vector<int> &nums) {
     }
 
     return maxSum;
+}
+
+int ArrayMed::maxProfit(vector<int> &prices) {
+    // https://leetcode.com/problems/best-time-to-buy-and-sell-stock/description/
+    int profit = 0;
+    int minPrice = prices[0];
+
+    for (int i = 1; i < prices.size(); i++) {
+        int currProfit = prices[i] - minPrice;
+        profit = max(profit, currProfit);
+
+        if (prices[i] < minPrice) {
+            minPrice = prices[i];
+        }
+    }
+
+    return profit;
+}
+
+vector<int> ArrayMed::rearrangeArray(vector<int> &nums) {
+    // https://leetcode.com/problems/rearrange-array-elements-by-sign/
+    int n = nums.size();
+    vector<int> ans(n, 0);
+    int pos = 0, neg = 1;
+    for (int i = 0; i < n; ++i) {
+        if (nums[i] >= 0) {
+            ans[pos] = nums[i];
+            pos += 2;
+        } else {
+            ans[neg] = nums[i];
+            neg += 2;
+        }
+    }
+    return ans;
+}
+
+int ArrayMed::longestConsecutive(vector<int> &nums) {
+    // https://leetcode.com/problems/longest-consecutive-sequence/
+
+    if (nums.size() == 0) {
+        return 0;
+    }
+    unordered_set<int> elements(nums.begin(), nums.end());
+
+    int longest = 0;
+    int count = 0;
+    for (const int &num: elements) {
+        if (elements.contains(num - 1)) {
+            continue;
+        } else {
+            count = 1;
+            int i = 1;
+            while (elements.contains(num + i)) {
+                count++;
+                i++;
+            }
+        }
+
+        longest = max(longest, count);
+    }
+
+    return longest;
 }
