@@ -3,8 +3,9 @@
 // #include "MathDSA/MathDSA.h"
 // #include "RecursionBasics/RecursionBasics.h"
 #include <vector>
-#include "HashingBasics/HashingBasics.h"
-#include "Sorting/SortingAlgo.h"
+// #include "HashingBasics/HashingBasics.h"
+// #include "Sorting/SortingAlgo.h"
+#include "Arrays/ArraysBasic.h"
 
 
 using namespace std;
@@ -29,16 +30,12 @@ int main() {
     //     cout << arr[i];
     // }
     // cout << RecursionBasics::stringPalindromeCheck("MadaM");
-    vector<int> nums = {1,2,3,4,7,5,6,9,10,10,3,9,11};
+    vector<int> nums1 = {0, 0, 1, 0, 3, 12};
+    //vector<int> nums2 = {2,5,6};
     // map<int, int> freq = HashingBasics::frequencyCount(nums);
-    SortingAlgo::QuickSort(nums);
-    for (int num : nums) {
+    ArraysBasic::moveZeroes(nums1);
+    for (int num: nums1) {
         cout << num << ' ';
     }
     // cout << nums.size();
-
-
-
-
-
 }
