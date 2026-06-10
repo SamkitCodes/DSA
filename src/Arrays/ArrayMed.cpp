@@ -24,3 +24,70 @@ pair<int, int> ArrayMed::twoSum(vector<int> &nums, int target) {
 
     return {};
 }
+
+void ArrayMed::sortColors(vector<int> &nums) {
+    // Dutch National Flag Algorithm
+    // Low should point at start of 1s, high at start of 2, and sort mid-high
+    // https://leetcode.com/problems/sort-colors/
+    int low = 0, mid = 0, high = nums.size() - 1;
+
+    while (mid <= high) {
+        if (nums[mid] == 2) {
+            swap(nums[mid], nums[high--]);
+        } else if (nums[mid] == 0) {
+            swap(nums[mid++], nums[low++]);
+        } else {
+            mid++;
+        }
+    }
+}
+
+int ArrayMed::majorityElement(vector<int> &nums) {
+    // Moore's Voting Algorithm
+
+    int count = 0;
+    int candidate;
+    int size = nums.size();
+    for (int i = 0; i < nums.size(); i++) {
+        if (count == 0) {
+            candidate = nums[i];
+            count = 1;
+        } else if (nums[i] == candidate) {
+            count++;
+        } else {
+            count--;
+        }
+    }
+
+    count = 0;
+    for (int num: nums) {
+        if (num == candidate) {
+            count++;
+        }
+    }
+
+    if (count >= (nums.size() - 1) / 2) {
+        return candidate;
+    }
+
+    return -1;
+}
+
+int ArrayMed::maxSubArray(vector<int> &nums) {
+    // https://leetcode.com/problems/maximum-subarray/
+    int sum = 0;
+    int maxSum = INT_MIN;
+
+    for (int i = 0; i < nums.size(); i++) {
+        sum += nums[i];
+        if (sum > maxSum) {
+            maxSum = sum;
+        }
+
+        if (sum < 0) {
+            sum = 0;
+        }
+    }
+
+    return maxSum;
+}
