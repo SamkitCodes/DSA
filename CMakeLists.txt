@@ -16,4 +16,6 @@ add_executable(DSA src/Patterns/Patterns.cpp
         src/Sorting/SortingAlgo.h
         src/Arrays/ArraysBasic.cpp
         src/Arrays/ArraysBasic.h
+        src/Arrays/ArrayMed.cpp
+        src/Arrays/ArrayMed.h
 )

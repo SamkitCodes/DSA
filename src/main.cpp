@@ -4,8 +4,9 @@
 // #include "RecursionBasics/RecursionBasics.h"
 #include <vector>
 // #include "HashingBasics/HashingBasics.h"
-// #include "Sorting/SortingAlgo.h"
-#include "Arrays/ArraysBasic.h"
+#include "Sorting/SortingAlgo.h"
+//#include "Arrays/ArraysBasic.h"
+#include "Arrays/ArrayMed.h"
 
 
 using namespace std;
@@ -33,7 +34,7 @@ int main() {
     vector<int> nums1 = {0, 0, 1, 0, 3, 12};
     //vector<int> nums2 = {2,5,6};
     // map<int, int> freq = HashingBasics::frequencyCount(nums);
-    ArraysBasic::moveZeroes(nums1);
+    SortingAlgo::QuickSort(nums1);
     for (int num: nums1) {
         cout << num << ' ';
     }
